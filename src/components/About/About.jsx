@@ -53,8 +53,8 @@ const About = () => {
       </div>
 
       <div className="about-content">
-        <div className="about-bio" style={{ color: darkMode ? "#ccc" : "" }}>
-          <p>{process.env.REACT_APP_ABOUT_DESC}</p>
+        <div className="about-bio">
+          <p style={{ color: darkMode ? "#ccc" : "" }}>{process.env.REACT_APP_ABOUT_DESC}</p>
           <p className="about-extra" style={{ color: darkMode ? "#aaa" : "" }}>
             I enjoy architecting solutions that balance security, performance, and developer experience.
             When I'm not building backend systems, you'll find me exploring new AI frameworks,

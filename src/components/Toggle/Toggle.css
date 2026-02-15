@@ -23,6 +23,5 @@
 @media screen and (max-width: 480px) {
     .toggle {
         position: relative;
-        left: -1rem;
     }
 }

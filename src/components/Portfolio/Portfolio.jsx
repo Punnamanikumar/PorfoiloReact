@@ -18,7 +18,7 @@ const Portfolio = () => {
   return (
     <div className="portfolio" id="portfolio">
       {/* heading */}
-      <span style={{ color: darkMode ? "white" : "" }}>Recent Projects</span>
+      <span style={{ color: darkMode ? "white" : "" }}>Mini Projects</span>
       <span>Portfolio</span>
 
       {/* slider with custom nav buttons outside */}
@@ -33,10 +33,16 @@ const Portfolio = () => {
 
         <Swiper
           spaceBetween={30}
-          slidesPerView={3}
+          slidesPerView={1}
           grabCursor={true}
           onSwiper={(swiper) => (swiperRef.current = swiper)}
           className="portfolio-slider"
+          breakpoints={{
+            481: {
+              slidesPerView: 3,
+              spaceBetween: 30,
+            },
+          }}
         >
           <SwiperSlide>
             <img src={Form} alt="" />

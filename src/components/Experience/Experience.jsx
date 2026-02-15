@@ -117,7 +117,10 @@ const Experience = () => {
             transition={{ duration: 0.6, delay: jobIndex * 0.2 }}
             viewport={{ once: true }}
           >
-            <div className="timeline-dot"></div>
+            <div
+              className="timeline-dot"
+              style={{ borderColor: darkMode ? "#1e1e2a" : "" }}
+            ></div>
             <div
               className={`timeline-card ${job.type}`}
               style={{
@@ -129,7 +132,7 @@ const Experience = () => {
                 <div>
                   <h3 style={{ color: darkMode ? "white" : "" }}>{job.company}</h3>
                   <span className="timeline-role">{job.role}</span>
-                  <span className="timeline-location">{job.location}</span>
+                  <span className="timeline-location" style={{ color: darkMode ? "#888" : "" }}>{job.location}</span>
                 </div>
                 <span className="timeline-period">{job.period}</span>
               </div>
@@ -143,6 +146,10 @@ const Experience = () => {
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: catIndex * 0.1 }}
                     viewport={{ once: true }}
+                    style={{
+                      background: darkMode ? "#1e1e2a" : "",
+                      borderColor: darkMode ? "#2a2a3a" : "",
+                    }}
                   >
                     <div className="cat-title">
                       <span>{cat.icon}</span>
@@ -152,7 +159,7 @@ const Experience = () => {
                       {cat.highlights.map((point, pIndex) => (
                         <li
                           key={pIndex}
-                          style={{ color: darkMode ? "#ccc" : "" }}
+                          style={{ color: darkMode ? "#bbb" : "" }}
                         >
                           {point}
                         </li>

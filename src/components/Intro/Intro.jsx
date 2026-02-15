@@ -13,7 +13,6 @@ import LinkedIn from "../../img/linkedin.png";
 import Instagram from "../../img/instagram.png";
 import { themeContext } from "../../Context";
 import { motion } from "framer-motion";
-import { Link } from "react-scroll";
 
 const roles = [
   "MERN Stack Developer",
@@ -70,9 +69,7 @@ const Intro = () => {
         </div>
         <div className="i-button">
           <span>
-            <Link to="contact" smooth={true} spy={true}>
-              <button className="button i-button1">Hire me</button>
-            </Link>
+              <button className="button i-button1" onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}>Hire me</button>
           </span>
           <span>
             <a
