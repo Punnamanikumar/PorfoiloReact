@@ -12,14 +12,6 @@ const sections = [
   { id: "awards", label: "Awards" },
 ];
 
-const scrollTo = (id) => {
-  const el = document.getElementById(id);
-  if (el) {
-    const navbarHeight = 80;
-    const top = el.getBoundingClientRect().top + window.scrollY - navbarHeight;
-    window.scrollTo({ top, behavior: "smooth" });
-  }
-};
 
 const Navbar = () => {
   const theme = useContext(themeContext);
