@@ -3,7 +3,7 @@ import "./Project.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
-import { Pagination } from "swiper";
+import { Pagination } from "swiper/modules";
 import "swiper/css/pagination";
 import ReactBlog from "../../img/TechStacks/blog.png";
 import Jozbiz from "../../img/TechStacks/jozbiz.png";
