@@ -1,136 +1,142 @@
-.works {
-  padding: 0 3rem 0 3rem;
-  display: flex;
-  height: 90vh;
-  margin-top: 4rem;
-
-  /* scroll */
-  align-items: center;
+.edu-section {
+  padding: 4rem 2rem;
+  position: relative;
 }
-/* left side */
-.awesome {
+
+.edu-header {
   display: flex;
   flex-direction: column;
-  position: relative;
-}
-
-.awesome > :nth-child(1) {
-  color: var(--black);
-  font-size: 2.5rem;
-  font-weight: bold;
-}
-.awesome > :nth-child(2) {
-  color: var(--orange);
-  font-size: 2.5rem;
-  font-weight: bold;
-}
-.awesome > :nth-child(3) {
-  color: var(--gray);
-  font-size: 14px;
-  margin-top: 1rem;
-}
-.s-button {
-  width: 8rem;
-  height: 2rem;
-  margin-top: 4rem;
-}
-
-/* right side */
-.w-right {
-  position: relative;
-}
-
-.w-mainCircle {
-  left: 9rem;
-  position: relative;
-  width: 18rem;
-  height: 18rem;
-  border-radius: 100%;
-  box-shadow: var(--smboxShadow);
-  top: 2rem;
-  background: white;
-  /* darkMode */
-  z-index: 2;
-}
-.w-mainCircle > * {
-  position: absolute;
-}
-.w-mainCircle > :nth-child(1) {
-  top: -3rem;
-  left: 6rem;
-}
-.w-mainCircle > :nth-child(2) {
-  left: -3rem;
-  top: 5rem;
-}
-.w-mainCircle > :nth-child(3) {
-  left: 6rem;
-  top: 5rem;
-}
-.w-mainCircle > :nth-child(4) {
-  left: 15rem;
-  top: 5rem;
-}
-.w-mainCircle > :nth-child(5) {
-  left: 6rem;
-  top: 13rem;
-}
-.w-secCircle {
-  width: 6rem;
-  height: 6rem;
-  position: absolute;
-  border-radius: 100%;
-  border: 5px solid #ebebeb;
-  display: flex;
   align-items: center;
-  justify-content: center;
-  background: "none";
-  box-shadow: var(--smboxShadow);
+  margin-bottom: 3rem;
+}
+
+.edu-header > span:first-child {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--black);
+}
+
+.edu-header > span:nth-child(2) {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--orange);
+}
+
+.edu-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.edu-column h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 1.5rem;
+}
+
+.edu-card {
+  display: flex;
+  gap: 1rem;
+  padding: 1.5rem;
   background: white;
+  border: 1px solid #e8e8ef;
+  border-radius: 16px;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
 }
 
-.w-secCircle > img {
-  transform: scale(0.6);
+.edu-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  border-color: var(--orange);
 }
 
-.w-backCircle {
-  position: absolute;
-  height: 13rem;
-  width: 13rem;
-  border-radius: 100%;
-  /* darkMode */
-  z-index: 1;
+.cert-card {
+  border-left: 4px solid #87e6fb;
 }
-.blueCircle {
-  background: #1949b8;
-  left: 18rem;
-  top: 0rem;
+
+.edu-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
 }
-.yellowCircle {
-  background: #f5c32c;
-  left: 18rem;
-  top: 8rem;
+
+.edu-info {
+  flex: 1;
+}
+
+.edu-info h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--black);
+  margin: 0 0 0.3rem 0;
+}
+
+.edu-institution {
+  font-size: 0.85rem;
+  color: var(--gray);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.edu-meta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.edu-period {
+  font-size: 0.78rem;
+  color: var(--gray);
+  background: #f7f7fb;
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+}
+
+.edu-grade {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--orange);
+  background: #fff8ee;
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+}
+
+.cert-detail {
+  font-size: 0.82rem;
+  color: #555;
+  margin: 0.5rem 0 0 0;
+  line-height: 1.5;
+}
+
+/* blur */
+.s-blur1 {
+  top: 13rem;
+  left: -18rem;
 }
 
 @media screen and (max-width: 480px) {
-  .works {
-    flex-direction: column;
-    height: 55rem;
-    padding: 0;
-    gap: 5rem;
+  .edu-section {
+    padding: 2rem 0.5rem;
   }
 
-  .w-right {
-    display: flex;
-    align-items: flex-start;
-    justify-content:start;
-    transform: scale(0.7);
-  }
-  .w-mainCircle{
-    position: static;
-  }
-  .w-backCircle{
-    left: 8rem!important;
+  .edu-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
 
+  .edu-header > span:first-child {
+    font-size: 1.5rem;
+  }
+
+  .edu-header > span:nth-child(2) {
+    font-size: 1.8rem;
+  }
+
+  .edu-card {
+    padding: 1rem;
+  }
 }

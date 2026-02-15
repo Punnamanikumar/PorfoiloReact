@@ -2,7 +2,7 @@ import React from "react";
 import Toggle from "../Toggle/Toggle";
 import "./Navbar.css";
 import { Link } from "react-scroll";
-const navbar = () => {
+const Navbar = () => {
   return (
     <div className="n-wrapper" id="Navbar">
       <div className="n-left">
@@ -29,12 +29,17 @@ const navbar = () => {
             </li>
             <li>
               <Link to="portfolio" spy={true} smooth={true}>
-                Protfolio
+                Portfolio
               </Link>
             </li>
             <li>
               <Link to="projects" spy={true} smooth={true}>
                 Projects
+              </Link>
+            </li>
+            <li>
+              <Link to="awards" spy={true} smooth={true}>
+                Awards
               </Link>
             </li>
           </ul>
@@ -47,4 +52,4 @@ const navbar = () => {
   );
 };
 
-export default navbar;
+export default Navbar;

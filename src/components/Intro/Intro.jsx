@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import "./Intro.css";
 import Vector1 from "../../img/Vector1.png";
 import Vector2 from "../../img/Vector2.png";
@@ -15,19 +15,58 @@ import { themeContext } from "../../Context";
 import { motion } from "framer-motion";
 import { Link } from "react-scroll";
 
+const roles = [
+  "MERN Stack Developer",
+  "Backend Specialist",
+  "Cloud & AI Enthusiast",
+  "Auth Systems Architect",
+];
+
 const Intro = () => {
   const transition = { duration: 2, type: "spring" };
-
   const theme = useContext(themeContext);
   const darkMode = theme.state.darkMode;
+
+  const [roleIndex, setRoleIndex] = useState(0);
+  const [displayText, setDisplayText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const currentRole = roles[roleIndex];
+    let timeout;
+
+    if (!isDeleting && displayText === currentRole) {
+      timeout = setTimeout(() => setIsDeleting(true), 2000);
+    } else if (isDeleting && displayText === "") {
+      setIsDeleting(false);
+      setRoleIndex((prev) => (prev + 1) % roles.length);
+    } else {
+      timeout = setTimeout(
+        () => {
+          setDisplayText(
+            isDeleting
+              ? currentRole.substring(0, displayText.length - 1)
+              : currentRole.substring(0, displayText.length + 1)
+          );
+        },
+        isDeleting ? 50 : 100
+      );
+    }
+
+    return () => clearTimeout(timeout);
+  }, [displayText, isDeleting, roleIndex]);
 
   return (
     <div className="Intro" id="Intro">
       <div className="i-left">
         <div className="i-name">
-          <span style={{ color: darkMode ? "white" : "" }}>Hy! I Am</span>
-          <span>Mani Kumar Punna</span>
-          <span>{process.env.REACT_APP_INTRO_DESC}</span>
+          <span style={{ color: darkMode ? "white" : "" }}>Hey! I'm</span>
+          <span>Manikumar Punna</span>
+          <span className="i-role">
+            {displayText}
+            <span className="cursor">|</span>
+          </span>
+          <span className="i-desc">{process.env.REACT_APP_INTRO_DESC}</span>
         </div>
         <div className="i-button">
           <span>
@@ -47,9 +86,15 @@ const Intro = () => {
           </span>
         </div>
         <div className="i-icons">
-          <img src={Github} alt="" />
-          <img src={LinkedIn} alt="" />
-          <img src={Instagram} alt="" />
+          <a href="https://github.com/Punnamanikumar" target="_blank" rel="noreferrer">
+            <img src={Github} alt="GitHub" />
+          </a>
+          <a href="https://linkedin.com/in/punnamanikumar" target="_blank" rel="noreferrer">
+            <img src={LinkedIn} alt="LinkedIn" />
+          </a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">
+            <img src={Instagram} alt="Instagram" />
+          </a>
         </div>
       </div>
       <div className="i-right">
@@ -83,7 +128,7 @@ const Intro = () => {
           transition={transition}
           className="floating-div"
         >
-          <FloatinDiv img={thumbup} text1="Web Designer" text2="" />
+          <FloatinDiv img={thumbup} text1="3.8+ Years" text2="Experience" />
         </motion.div>
 
         <div className="blur" style={{ background: "rgb(238 210 255)" }}></div>

@@ -1,57 +1,107 @@
 import React, { useContext } from "react";
 import "./About.css";
 import { themeContext } from "../../Context";
-import mongo from '../../img/TechStacks/mongodb.jpg'
-import express from '../../img/TechStacks/express.png'
-import react from '../../img/TechStacks/react.png'
-import node from '../../img/TechStacks/nodejs.png'
-import html from '../../img/TechStacks/html5 logo.png'
-import css from '../../img/TechStacks/css-logo.png'
-import js from '../../img/TechStacks/js.png'
-import bootstarp from '../../img/TechStacks/bootstrap logo.png'
-import github from '../../img/TechStacks/github.png'
-import sql from '../../img/TechStacks/sql.png'
 
-
+const skillCategories = [
+  {
+    title: "Backend Technologies",
+    icon: "⚙️",
+    skills: ["Node.js", "Express.js", "Nest.js", "TypeScript", "REST APIs", "Mongoose"],
+  },
+  {
+    title: "Frontend",
+    icon: "🎨",
+    skills: ["React.js", "TypeScript", "JavaScript", "HTML5", "CSS3"],
+  },
+  {
+    title: "Auth & Security",
+    icon: "🔐",
+    skills: ["LDAP", "Azure AD SSO", "OAuth2", "OpenID Connect", "JWT", "RBAC", "CBAC"],
+  },
+  {
+    title: "Databases & Caching",
+    icon: "🗄️",
+    skills: ["MongoDB", "MySQL", "Oracle", "Redis"],
+  },
+  {
+    title: "Cloud & DevOps",
+    icon: "☁️",
+    skills: ["AWS Lambda", "AWS SNS", "AWS SQS", "EventBridge", "S3", "AWS CDK", "Docker", "Git"],
+  },
+  {
+    title: "AI & LLM",
+    icon: "🤖",
+    skills: ["RAG", "Prompt Engineering", "CrewAI", "MCP", "Agentic AI", "LangChain", "LangSmith", "Vector DBs"],
+  },
+  {
+    title: "Monitoring & Quality",
+    icon: "📊",
+    skills: ["Grafana", "Dynatrace", "SonarQube", "Checkmarx", "Jest"],
+  },
+];
 
 const About = () => {
-  // context
   const theme = useContext(themeContext);
   const darkMode = theme.state.darkMode;
 
   return (
-    <div id="about">
-      <div className="ab0">
-        <div className="ab1"  style={{ color: darkMode ? "#5EAAA8" : "" }}>About Me</div>
+    <div id="about" className="about-section">
+      <div className="about-header">
+        <span style={{ color: darkMode ? "white" : "" }}>Get To Know</span>
+        <span>About Me</span>
         <div className="hr2"></div>
-        <div className="ab2" style={{ color: darkMode ? "white" : "" }}>
-          {process.env.REACT_APP_ABOUT_DESC}
+      </div>
+
+      <div className="about-content">
+        <div className="about-bio" style={{ color: darkMode ? "#ccc" : "" }}>
+          <p>{process.env.REACT_APP_ABOUT_DESC}</p>
+          <p className="about-extra" style={{ color: darkMode ? "#aaa" : "" }}>
+            I enjoy architecting solutions that balance security, performance, and developer experience.
+            When I'm not building backend systems, you'll find me exploring new AI frameworks,
+            contributing to open-source, or mentoring fellow developers.
+          </p>
         </div>
-        <div className="ab3" style={{ color: darkMode ? "white" : "" }}>
-          I enjoy turning complex problems into simple, beautiful and intuitive
-          designs. When I'm not pushing pixels, you'll find me playing Games,
-          watching movies or chilling out with friends .
-        </div>
-        <div className="about-div" >
-          <p style={{ color: darkMode ? "#5EAAA8" : "" }}>Languages/Library/Technology</p>
-          <div className="icon_flex">
-            <img src={mongo} alt="mongobd logo"/>
-            <img src={express} alt="express logo"/>
-            <img src={react} alt="react logo" />
-            <img src={node} alt="nodejs logo" />
-            <img src={html} alt="html5 logo"/>
-            <img src= {css} alt="css logo" />
-            <img src={js} alt="js logo" />
-            <img src={bootstarp} alt="bootstrap logo" />
-            <img src={github} alt="github logo" />
-            <img src={sql} alt="sql logo" />
+
+        <div className="skills-container">
+          <h3 style={{ color: darkMode ? "#FCA61F" : "" }}>Technical Skills</h3>
+          <div className="skills-grid">
+            {skillCategories.map((category, index) => (
+              <div
+                className="skill-category"
+                key={index}
+                style={{
+                  background: darkMode ? "#16161d" : "",
+                  borderColor: darkMode ? "#2a2a3a" : "",
+                }}
+              >
+                <div className="category-header">
+                  <span className="category-icon">{category.icon}</span>
+                  <span className="category-title" style={{ color: darkMode ? "white" : "" }}>
+                    {category.title}
+                  </span>
+                </div>
+                <div className="skill-tags">
+                  {category.skills.map((skill, sIndex) => (
+                    <span
+                      className="skill-tag"
+                      key={sIndex}
+                      style={{
+                        background: darkMode ? "#242D49" : "",
+                        color: darkMode ? "#60a5fa" : "",
+                        borderColor: darkMode ? "#3a3a5a" : "",
+                      }}
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
-        <div
-    className="blur s-blur2"
-    style={{ background: "var(--purple)" }}></div>
-        <br />
       </div>
+
+      <div className="blur s-blur2" style={{ background: "var(--purple)" }}></div>
     </div>
   );
 };

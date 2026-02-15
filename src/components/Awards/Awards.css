@@ -1,0 +1,112 @@
+.awards-section {
+  padding: 4rem 2rem;
+  position: relative;
+}
+
+.awards-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.awards-header > span:first-child {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--black);
+}
+
+.awards-header > span:nth-child(2) {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--orange);
+}
+
+.awards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.award-card {
+  background: white;
+  border: 1px solid #e8e8ef;
+  border-radius: 20px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.award-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+  border-color: var(--orange);
+}
+
+.award-icon-wrapper {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.2rem auto;
+  border: 2px solid;
+  transition: transform 0.3s ease;
+}
+
+.award-card:hover .award-icon-wrapper {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.award-icon {
+  font-size: 2.2rem;
+}
+
+.award-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--black);
+  margin: 0 0 0.3rem 0;
+}
+
+.award-org {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--orange);
+  display: block;
+  margin-bottom: 0.8rem;
+}
+
+.award-card p {
+  font-size: 0.85rem;
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media screen and (max-width: 480px) {
+  .awards-section {
+    padding: 2rem 0.5rem;
+  }
+
+  .awards-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .awards-header > span:first-child {
+    font-size: 1.5rem;
+  }
+
+  .awards-header > span:nth-child(2) {
+    font-size: 1.8rem;
+  }
+
+  .award-card {
+    padding: 1.5rem 1rem;
+  }
+}

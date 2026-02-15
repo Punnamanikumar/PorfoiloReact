@@ -9,6 +9,13 @@
     --boxShadow : 0px 19px 60px rgb(0 0 0 / 8%);
     --orangeCard: rgba(252, 166, 31, 0.45);
     --smboxShadow: -79px 51px 60px rgba(0, 0, 0, 0.08);
+    --gradient: linear-gradient(135deg, #fdc50f 0%, #fb982f 100%);
+    --dark-bg: #0a0a0f;
+    --dark-card: #16161d;
+    --dark-border: #2a2a3a;
+    --accent-blue: #60a5fa;
+    --accent-green: #34d399;
+    --accent-purple: #a78bfa;
 }
 
 .App{
@@ -25,6 +32,9 @@
     color: white;
     font-size: 16px;
     padding: 11px 26px 11px 26px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
   }
   
   .button:hover {
@@ -32,14 +42,33 @@
     cursor: pointer;
     border: 1px solid var(--orange);
     color: var(--orange);
+    transform: translateY(-2px);
+    box-shadow: 0px 24px 28px 3px rgba(251, 161, 40, 0.3);
   }
+
+  /* Section heading utilities */
+  .section-heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .section-heading > span:first-child {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--black);
+  }
+
+  .section-heading > span:nth-child(2) {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--orange);
+  }
+
   @media screen and (max-width: 480px) {
     .App {
       padding: 0.5rem 1rem;
-
     }
   }
-
-  
-
-  

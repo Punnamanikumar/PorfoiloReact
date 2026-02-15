@@ -1,7 +1,8 @@
 .contact-form{
   padding: 0 3rem 0 3rem;
   display: flex;
-  height: 80vh;
+  height: auto;
+  min-height: 80vh;
   margin-top: 4rem;
   margin-bottom: 4rem;
     /* scroll */
@@ -38,6 +39,46 @@ textarea{
   height: 4rem!important;
 }
 
+/* Contact info styling */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 0.9rem;
+}
+
+.contact-icon {
+  font-size: 1.2rem;
+}
+
+.contact-item a {
+  color: var(--orange);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  font-size: 0.9rem;
+}
+
+.contact-item a:hover {
+  color: #fb982f;
+  text-decoration: underline;
+}
+
+.contact-item span:not(.contact-icon) {
+  color: var(--gray);
+  font-size: 0.9rem;
+}
+
+.sucesstext {
+  color: var(--orange);
+  font-weight: 600;
+}
 
 .error {
   animation: shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
@@ -89,5 +130,11 @@ textarea{
   }
   .sucesstext{
     margin-top: -1.2rem;
+  }
+  .contact-info {
+    margin-top: 1rem;
+  }
+  .contact-item {
+    font-size: 0.8rem;
   }
 }   
