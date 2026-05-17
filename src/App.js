@@ -11,6 +11,7 @@ import { themeContext } from "./Context";
 import Projects from "./components/Projects/Project";
 import About from "./components/About/About";
 import Awards from "./components/Awards/Awards";
+import Chatbot from "./components/Chatbot/Chatbot";
 
 function App() {
   const theme = useContext(themeContext);
@@ -33,6 +34,7 @@ function App() {
       <Awards />
       <Contact />
       <Footer />
+      <Chatbot darkMode={darkMode} />
     </div>
   );
 }

@@ -65,11 +65,11 @@ const Intro = () => {
             {displayText}
             <span className="cursor">|</span>
           </span>
-          <span className="i-desc">{process.env.REACT_APP_INTRO_DESC}</span>
+          <span className="i-desc" style={{ color: darkMode ? "#e5e7eb" : "var(--gray)", opacity: darkMode ? 0.9 : 1 }}>{process.env.REACT_APP_INTRO_DESC}</span>
         </div>
         <div className="i-button">
           <span>
-              <button className="button i-button1" onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}>Hire me</button>
+            <button className="button i-button1" onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}>Let's Connect</button>
           </span>
           <span>
             <a
