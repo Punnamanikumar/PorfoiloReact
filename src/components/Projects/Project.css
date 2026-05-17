@@ -33,26 +33,29 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
-    padding: 2rem;
-    width: 50rem;
-    height: 12rem;
+    padding: 2.5rem;
+    width: 55rem; /* slightly wider to fit content better */
+    height: auto; /* fixed truncation */
+    min-height: 18rem;
     /* styles same as work.css */
     background: rgba(255, 255, 255, 0.26);
     border: 7px solid var(--blueCard);
     box-shadow: var(--boxShadow);
     border-radius: 20px;
-    gap: 1.5rem;
-    
+    gap: 2rem;
 }
-.projects>img{
-    width: 15rem;
-    height: 8rem;
-    border-radius: 6%;
-    transition: transform 1s;
+.project-img-wrapper {
+    flex-shrink: 0;
+    width: 18rem;
+    height: 12rem;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
-.projects>img:hover{
-    transform: scale(1.2, 1.2);
-
+.project-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 .projects>span{
     color: var(--gray);
@@ -172,11 +175,15 @@
         padding: 1.2rem;
         gap: 1rem;
     }
-    .projects>img{
+    .project-img-wrapper{
         width: 100%;
         max-width: 280px;
         height: auto;
         aspect-ratio: 16/10;
+    }
+    .project-img-wrapper img{
+        width: 100%;
+        height: 100%;
         object-fit: cover;
     }
     .title{

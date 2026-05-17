@@ -12,10 +12,17 @@ import Projects from "./components/Projects/Project";
 import About from "./components/About/About";
 import Awards from "./components/Awards/Awards";
 import Chatbot from "./components/Chatbot/Chatbot";
+import ScrollProgress from "./components/ScrollProgress/ScrollProgress";
+import CustomCursor from "./components/CustomCursor/CustomCursor";
+import { useLenis } from "./hooks/useLenis";
 
 function App() {
   const theme = useContext(themeContext);
   const darkMode = theme.state.darkMode;
+
+  // Initialize Lenis smooth scroll — runs once at app root
+  useLenis();
+
   return (
     <div
       className="App"
@@ -24,6 +31,10 @@ function App() {
         color: darkMode ? "white" : "",
       }}
     >
+      {/* Fixed UI chrome — scroll progress bar + custom cursor */}
+      <ScrollProgress />
+      <CustomCursor />
+
       <Navbar />
       <Intro />
       <About />

@@ -5,13 +5,16 @@ import "swiper/css";
 
 import { Pagination } from "swiper/modules";
 import "swiper/css/pagination";
-import ReactBlog from "../../img/TechStacks/blog.png";
-import Jozbiz from "../../img/TechStacks/jozbiz.png";
+import ReactBlog from "../../img/TechStacks/blog.jpg";
+import Jozbiz from "../../img/TechStacks/jozbiz.jpg";
 import OroPocket from "../../img/TechStacks/oropocket.png";
-import Klently from "../../img/TechStacks/klenty.png";
-import Myntra from "../../img/TechStacks/myntra.png";
+import Klently from "../../img/TechStacks/klenty.jpg";
+import Myntra from "../../img/TechStacks/myntra.jpg";
 import AI_Compliance_Validator from "../../img/TechStacks/AI_Compliance_Validator.jpg"
 import AI_JobAnalyser from "../../img/TechStacks/ai_job_analyser.jpeg"
+import AnimatedSection from "../AnimatedSection/AnimatedSection";
+import { motion } from "framer-motion";
+
 const Projects = () => {
   const swiperRef = useRef(null);
   const clients = [
@@ -91,18 +94,18 @@ const Projects = () => {
 
   return (
     <div className="t-wrapper" id="projects">
-      <div className="t-heading">
+      <AnimatedSection direction="up" className="t-heading">
         <span>My Notable </span>
         <span>Projects </span>
-        <span style={{ fontSize: "1rem", color: "var(--gray)", fontWeight: 400 }}>
+        <span style={{ fontSize: "1rem", color: "var(--gray)", fontWeight: 400, display: "block", marginTop: "0.5rem" }}>
           Showcasing full-stack and AI-powered applications
         </span>
         <div className="blur t-blur1" style={{ background: "var(--purple)" }}></div>
         <div className="blur t-blur2" style={{ background: "skyblue" }}></div>
-      </div>
+      </AnimatedSection>
 
       {/* Slider with navigation arrows */}
-      <div className="projects-slider-wrapper">
+      <AnimatedSection direction="none" delay={0.2} className="projects-slider-wrapper">
         <button
           className="projects-nav-btn projects-nav-prev"
           onClick={() => swiperRef.current?.slidePrev()}
@@ -121,39 +124,46 @@ const Projects = () => {
           {clients.map((client, index) => {
             return (
               <SwiperSlide key={index}>
-                <div className="projects">
-                  <img src={client.img} alt="" />
+                <motion.div
+                  className="projects"
+                  whileHover={{ y: -6, boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.15)" }}
+                >
+                  <motion.div className="project-img-wrapper" whileHover={{ scale: 1.02 }}>
+                    <img src={client.img} alt="" />
+                  </motion.div>
                   <div className="description">
                     <div className="title">{client.title}</div>
                     {client.description}
-                    <span style={{ color: "green" }} className="techology">
-                      <span style={{ color: "red" }} className="techology">
+                    <span style={{ color: "var(--accent-green)" }} className="techology">
+                      <span style={{ color: "var(--orange)" }} className="techology">
                         Technology :
                       </span>{" "}
                       {client.technology}
                     </span>
                     <span className="links">
                       {client.hostedUrl !== "#" && (
-                        <a
+                        <motion.a
+                          whileHover={{ x: 5 }}
                           href={client.hostedUrl}
                           target="_blank"
                           rel="noreferrer"
                           className="links"
                         >
-                          Live Demo
-                        </a>
+                          Live Demo ↗
+                        </motion.a>
                       )}
-                      <a
+                      <motion.a
+                        whileHover={{ x: 5 }}
                         href={client.githubUrl}
                         target="_blank"
                         rel="noreferrer"
                         className="links"
                       >
-                        GitHub Repository
-                      </a>
+                        GitHub Repository ↗
+                      </motion.a>
                     </span>
                   </div>
-                </div>
+                </motion.div>
               </SwiperSlide>
             );
           })}
@@ -166,7 +176,7 @@ const Projects = () => {
         >
           ›
         </button>
-      </div>
+      </AnimatedSection>
     </div>
   );
 };

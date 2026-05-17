@@ -716,8 +716,9 @@
     }
 
     .chat-tooltip {
-        display: none;
-        /* Hide rotation tooltip on small mobile screens to prevent overflow */
+        font-size: 0.75rem;
+        padding: 6px 10px;
+        /* Make tooltip slightly smaller on mobile, instead of hiding it */
     }
 
     .chat-window {

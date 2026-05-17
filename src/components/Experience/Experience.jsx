@@ -1,7 +1,13 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import { themeContext } from "../../Context";
 import "./Experience.css";
 import { motion } from "framer-motion";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import AnimatedSection from "../AnimatedSection/AnimatedSection";
+import { slideInLeft, slideInRight } from "../../animations/variants";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const workExperience = [
   {
@@ -73,33 +79,71 @@ const workExperience = [
 const Experience = () => {
   const theme = useContext(themeContext);
   const darkMode = theme.state.darkMode;
+  const statsRef = useRef(null);
+  
+  // GSAP Counter Animation
+  useEffect(() => {
+    const stats = statsRef.current.querySelectorAll('.counter-val');
+    
+    // Only animate if element is found
+    if (stats.length === 0) return;
+
+    const ctx = gsap.context(() => {
+      stats.forEach((stat) => {
+        const targetValue = parseFloat(stat.getAttribute('data-target'));
+        const isFloat = targetValue % 1 !== 0; // Check if it's a decimal like 3.8
+        
+        ScrollTrigger.create({
+          trigger: statsRef.current,
+          start: "top 80%",
+          once: true,
+          onEnter: () => {
+            gsap.to(stat, {
+              innerHTML: targetValue,
+              duration: 2,
+              ease: "power2.out",
+              snap: { innerHTML: isFloat ? 0.1 : 1 },
+              onUpdate: function() {
+                // Ensure float values display with 1 decimal place
+                if (isFloat) {
+                  stat.innerHTML = parseFloat(this.targets()[0].innerHTML).toFixed(1);
+                }
+              }
+            });
+          }
+        });
+      });
+    }, statsRef);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
     <div className="exp-section" id="experience">
-      <div className="exp-header">
+      <AnimatedSection className="exp-header" direction="up">
         <span style={{ color: darkMode ? "white" : "" }}>Professional</span>
         <span>Work Experience</span>
-      </div>
+      </AnimatedSection>
 
-      {/* Stats Row */}
-      <div className="experience">
+      {/* Stats Row - GSAP animated */}
+      <div className="experience" ref={statsRef}>
         <div className="achievement">
           <div className="circle" style={{ color: darkMode ? "var(--orange)" : "" }}>
-            {process.env.REACT_APP_EXPERIENCE_YEAR}
+            <span className="counter-val" data-target={process.env.REACT_APP_EXPERIENCE_YEAR || "3.8"}>0</span>+
           </div>
           <span style={{ color: darkMode ? "white" : "" }}>years </span>
           <span>Experience</span>
         </div>
         <div className="achievement">
           <div className="circle" style={{ color: darkMode ? "var(--orange)" : "" }}>
-            {process.env.REACT_APP_PROJECTS_COMPLETED}
+            <span className="counter-val" data-target={process.env.REACT_APP_PROJECTS_COMPLETED || "10"}>0</span>+
           </div>
           <span style={{ color: darkMode ? "white" : "" }}>completed </span>
           <span>Projects</span>
         </div>
         <div className="achievement">
           <div className="circle" style={{ color: darkMode ? "var(--orange)" : "" }}>
-            {process.env.REACT_APP_COMPANIES_WORKED}
+            <span className="counter-val" data-target={process.env.REACT_APP_COMPANIES_WORKED || "2"}>0</span>
           </div>
           <span style={{ color: darkMode ? "white" : "" }}>companies </span>
           <span>Work</span>
@@ -112,10 +156,10 @@ const Experience = () => {
           <motion.div
             className="timeline-item"
             key={jobIndex}
-            initial={{ opacity: 0, x: jobIndex % 2 === 0 ? -50 : 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: jobIndex * 0.2 }}
-            viewport={{ once: true }}
+            variants={jobIndex % 2 === 0 ? slideInLeft : slideInRight}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
           >
             <div
               className="timeline-dot"
@@ -142,9 +186,9 @@ const Experience = () => {
                   <motion.div
                     className="timeline-cat"
                     key={catIndex}
-                    initial={{ opacity: 0, x: catIndex % 2 === 0 ? -40 : 40 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5, delay: catIndex * 0.1 }}
+                    variants={slideInLeft} // Use variants instead of raw x values
+                    initial="hidden"
+                    whileInView="visible"
                     viewport={{ once: true }}
                     style={{
                       background: darkMode ? "#1e1e2a" : "",

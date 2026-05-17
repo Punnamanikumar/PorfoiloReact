@@ -2,6 +2,8 @@ import React, { useContext, useRef, useState } from "react";
 import "./Contact.css";
 import emailjs from "@emailjs/browser";
 import { themeContext } from "../../Context";
+import AnimatedSection from "../AnimatedSection/AnimatedSection";
+import { motion } from "framer-motion";
 
 const Contact = () => {
   const theme = useContext(themeContext);
@@ -111,32 +113,32 @@ const Contact = () => {
 
   return (
     <div className="contact-form" id="contact">
-      <div className="w-left">
+      <AnimatedSection direction="left" className="w-left">
         <div className="awesome">
           <span style={{ color: darkMode ? "white" : "" }}>Get in Touch</span>
           <span>Contact me</span>
 
           <div className="contact-info">
-            <div className="contact-item">
+            <motion.div className="contact-item" whileHover={{ x: 5 }}>
               <span className="contact-icon">📞</span>
               <span style={{ color: darkMode ? "#ccc" : "" }}>+91 72878 87575</span>
-            </div>
-            <div className="contact-item">
+            </motion.div>
+            <motion.div className="contact-item" whileHover={{ x: 5 }}>
               <span className="contact-icon">📧</span>
               <a href="mailto:punnamanikumar@gmail.com">punnamanikumar@gmail.com</a>
-            </div>
-            <div className="contact-item">
+            </motion.div>
+            <motion.div className="contact-item" whileHover={{ x: 5 }}>
               <span className="contact-icon">🔗</span>
               <a href="https://linkedin.com/in/punnamanikumar" target="_blank" rel="noreferrer">
                 LinkedIn Profile
               </a>
-            </div>
-            <div className="contact-item">
+            </motion.div>
+            <motion.div className="contact-item" whileHover={{ x: 5 }}>
               <span className="contact-icon">💻</span>
               <a href="https://github.com/Punnamanikumar" target="_blank" rel="noreferrer">
                 GitHub Profile
               </a>
-            </div>
+            </motion.div>
           </div>
 
           <div
@@ -144,15 +146,20 @@ const Contact = () => {
             style={{ background: "#ABF1FF94" }}
           ></div>
         </div>
-      </div>
-      <div className="c-right">
+      </AnimatedSection>
+      <AnimatedSection direction="right" delay={0.2} className="c-right">
         <form ref={form} onSubmit={sendEmail}>
-          <input type="text" name="name" className="user" placeholder="Name" />
-          <input type="email" name="email" className="user" placeholder="Email" />
-          <input type="number" name="mobile" className="user" placeholder="Mobile Number" />
-          <textarea name="message" className="user" placeholder="Message" />
+          <motion.input whileFocus={{ scale: 1.02 }} transition={{ duration: 0.2 }} type="text" name="name" className="user" placeholder="Name" />
+          <motion.input whileFocus={{ scale: 1.02 }} transition={{ duration: 0.2 }} type="email" name="email" className="user" placeholder="Email" />
+          <motion.input whileFocus={{ scale: 1.02 }} transition={{ duration: 0.2 }} type="number" name="mobile" className="user" placeholder="Mobile Number" />
+          <motion.textarea whileFocus={{ scale: 1.02 }} transition={{ duration: 0.2 }} name="message" className="user" placeholder="Message" />
           {disableButton ? (
-            <input type="submit" value="Send" className="button" />
+            <motion.input 
+              whileTap={{ scale: 0.95 }}
+              type="submit" 
+              value="Send" 
+              className="button" 
+            />
           ) : (
             "Sending Mail Please Wait ..."
           )}
@@ -162,7 +169,7 @@ const Contact = () => {
             style={{ background: "var(--purple)" }}
           ></div>
         </form>
-      </div>
+      </AnimatedSection>
     </div>
   );
 };

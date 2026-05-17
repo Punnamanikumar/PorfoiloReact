@@ -1,0 +1,18 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   ScrollProgress.css
+   Thin gradient bar at top of page indicating scroll depth.
+   Uses scaleX (GPU-friendly) NOT width.
+───────────────────────────────────────────────────────────────────────────── */
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #fdc50f 0%, #fb982f 50%, #f56565 100%);
+  transform-origin: left center;
+  z-index: 9999;
+  /* GPU compositing hint */
+  will-change: transform;
+}

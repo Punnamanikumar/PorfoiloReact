@@ -81,12 +81,12 @@
 
 /* Active section indicator */
 .n-active {
-  color: var(--orange) !important;
+  color: var(--black) !important;
   font-weight: 600;
 }
 
-.n-active::after {
-  content: "";
+/* Framer Motion animated underline */
+.nav-indicator {
   position: absolute;
   bottom: 0;
   left: 0;

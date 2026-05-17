@@ -85,7 +85,7 @@ const ChatWindow = ({ onClose }) => {
                 <button className="chat-close-btn" onClick={onClose}>✕</button>
             </div>
 
-            <div className="chat-messages">
+            <div className="chat-messages" data-lenis-prevent="true">
                 <div className="chat-message-wrapper bot-message">
                     <div className="msg-avatar">🤖</div>
                     <div className="chat-bubble">

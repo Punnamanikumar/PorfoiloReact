@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import "./Works.css";
 import { themeContext } from "../../Context";
 import { motion } from "framer-motion";
+import AnimatedSection from "../AnimatedSection/AnimatedSection";
+import { staggerContainer, fadeUp } from "../../animations/variants";
 
 const education = [
   {
@@ -43,68 +45,68 @@ const Works = () => {
 
   return (
     <div className="edu-section" id="works">
-      <div className="edu-header">
+      <AnimatedSection direction="up" className="edu-header">
         <span style={{ color: darkMode ? "white" : "" }}>Education &</span>
         <span>Certifications</span>
-      </div>
+      </AnimatedSection>
 
       <div className="edu-content">
         {/* Education */}
-        <div className="edu-column">
+        <AnimatedSection direction="none" className="edu-column">
           <h3 style={{ color: darkMode ? "#FCA61F" : "" }}>🎓 Education</h3>
-          {education.map((edu, index) => (
-            <motion.div
-              className="edu-card"
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.15 }}
-              viewport={{ once: true }}
-              style={{
-                background: darkMode ? "#16161d" : "",
-                borderColor: darkMode ? "#2a2a3a" : "",
-              }}
-            >
-              <div className="edu-icon">{edu.icon}</div>
-              <div className="edu-info">
-                <h4 style={{ color: darkMode ? "white" : "" }}>{edu.degree}</h4>
-                <span className="edu-institution">{edu.institution}</span>
-                <div className="edu-meta">
-                  <span className="edu-period">{edu.period}</span>
-                  <span className="edu-grade">{edu.grade}</span>
+          <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+            {education.map((edu, index) => (
+              <motion.div
+                className="edu-card"
+                key={index}
+                variants={fadeUp}
+                whileHover={{ y: -5, boxShadow: "0 10px 30px rgba(0,0,0,0.1)" }}
+                style={{
+                  background: darkMode ? "#16161d" : "",
+                  borderColor: darkMode ? "#2a2a3a" : "",
+                }}
+              >
+                <motion.div className="edu-icon" whileHover={{ rotate: 10, scale: 1.1 }}>{edu.icon}</motion.div>
+                <div className="edu-info">
+                  <h4 style={{ color: darkMode ? "white" : "" }}>{edu.degree}</h4>
+                  <span className="edu-institution">{edu.institution}</span>
+                  <div className="edu-meta">
+                    <span className="edu-period">{edu.period}</span>
+                    <span className="edu-grade">{edu.grade}</span>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </AnimatedSection>
 
         {/* Certifications */}
-        <div className="edu-column">
+        <AnimatedSection direction="none" delay={0.2} className="edu-column">
           <h3 style={{ color: darkMode ? "#FCA61F" : "" }}>📜 Certifications</h3>
-          {certifications.map((cert, index) => (
-            <motion.div
-              className="edu-card cert-card"
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.15 }}
-              viewport={{ once: true }}
-              style={{
-                background: darkMode ? "#16161d" : "",
-                borderColor: darkMode ? "#2a2a3a" : "",
-              }}
-            >
-              <div className="edu-icon">{cert.icon}</div>
-              <div className="edu-info">
-                <h4 style={{ color: darkMode ? "white" : "" }}>{cert.title}</h4>
-                <span className="edu-institution">{cert.issuer}</span>
-                <p className="cert-detail" style={{ color: darkMode ? "#ccc" : "" }}>
-                  {cert.detail}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+          <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+            {certifications.map((cert, index) => (
+              <motion.div
+                className="edu-card cert-card"
+                key={index}
+                variants={fadeUp}
+                whileHover={{ y: -5, boxShadow: "0 10px 30px rgba(0,0,0,0.1)" }}
+                style={{
+                  background: darkMode ? "#16161d" : "",
+                  borderColor: darkMode ? "#2a2a3a" : "",
+                }}
+              >
+                <motion.div className="edu-icon" whileHover={{ rotate: 10, scale: 1.1 }}>{cert.icon}</motion.div>
+                <div className="edu-info">
+                  <h4 style={{ color: darkMode ? "white" : "" }}>{cert.title}</h4>
+                  <span className="edu-institution">{cert.issuer}</span>
+                  <p className="cert-detail" style={{ color: darkMode ? "#ccc" : "" }}>
+                    {cert.detail}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </AnimatedSection>
       </div>
 
       <div className="blur s-blur1" style={{ background: "#ABF1FF94" }}></div>

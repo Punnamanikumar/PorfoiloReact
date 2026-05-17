@@ -1,0 +1,40 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   CustomCursor.css
+   Only activated on pointer:fine devices (desktop/trackpad).
+   Touch devices retain default browser cursor.
+───────────────────────────────────────────────────────────────────────────── */
+
+/* Hide default cursor on desktop only */
+@media (pointer: fine) {
+  *:not(input):not(textarea) {
+    cursor: none !important;
+  }
+
+  /* Small dot — snaps instantly to pointer */
+  .cursor-dot {
+    position: fixed;
+    top: -4px;
+    left: -4px;
+    width: 8px;
+    height: 8px;
+    background: var(--orange);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 99999;
+    will-change: transform;
+  }
+
+  /* Larger ring — spring-lagged behind dot for depth effect */
+  .cursor-ring {
+    position: fixed;
+    top: -16px;
+    left: -16px;
+    width: 32px;
+    height: 32px;
+    border: 1.5px solid rgba(252, 166, 31, 0.7);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 99998;
+    will-change: transform;
+  }
+}
