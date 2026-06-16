@@ -14,7 +14,8 @@ import AI_Compliance_Validator from "../../img/TechStacks/AI_Compliance_Validato
 import AI_JobAnalyser from "../../img/TechStacks/ai_job_analyser.jpeg"
 import AttendanceImg from "../../img/TechStacks/attendance.png";
 import JobPulseImg from "../../img/TechStacks/jobpulse.png";
-import PortfolioImg from "../../img/TechStacks/portfolio_mock.png";
+import AskManiChatBot from "../../img/TechStacks/ask-mani.jpeg";
+import CryptoToolingImg from "../../img/TechStacks/crypto_tooling.png";
 import AnimatedSection from "../AnimatedSection/AnimatedSection";
 import { motion } from "framer-motion";
 
@@ -31,13 +32,26 @@ const Projects = () => {
       githubUrl: "https://github.com/Punnamanikumar/JobPulse-AI",
     },
     {
-      img: PortfolioImg,
+      img: AskManiChatBot,
       title: "Portfolio Website",
       technology: "React.js · Node.js · Netlify · Render",
       description:
         "A personal developer website featuring a custom AI chatbot assistant ('Ask Mani') that queries a Node.js API to chat about my experience, skills, and background in real time. Integrates clean animations, dark mode, and email APIs.",
       hostedUrl: "https://manikumarportfolio.netlify.app",
       githubUrl: "https://github.com/Punnamanikumar/PorfoiloReact",
+    },
+    {
+      img: CryptoToolingImg,
+      title: "Secure Cryptographic Tooling",
+      technology: "HTML5 · JavaScript · Web Crypto API · AES-256-CBC · RSA-OAEP · Hybrid Encryption",
+      description:
+        "Client-side encryption and decryption utilities designed for development teams. Replaces insecure public online testing tools with zero-server, in-browser cryptographic functions supporting AES-256-CBC and hybrid RSA-OAEP with AES-GCM, preventing sensitive keys and payloads from being sent to external servers.",
+      links: [
+        { text: "AES Live", url: "https://punnamanikumar.github.io/AES-256-CBC-Encryption-Decryption/" },
+        { text: "AES Repo", url: "https://github.com/Punnamanikumar/AES-256-CBC-Encryption-Decryption" },
+        { text: "RSA Live", url: "https://punnamanikumar.github.io/RSA-Encryption-Decryption-Hybrid-AES-GCM/" },
+        { text: "RSA Repo", url: "https://github.com/Punnamanikumar/RSA-Encryption-Decryption-Hybrid-AES-GCM" }
+      ]
     },
     {
       img: AI_Compliance_Validator,
@@ -161,28 +175,46 @@ const Projects = () => {
                       </span>{" "}
                       {client.technology}
                     </span>
-                    <span className="links">
-                      {client.hostedUrl !== "#" && (
-                        <motion.a
-                          whileHover={{ x: 5 }}
-                          href={client.hostedUrl}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="links"
-                        >
-                          Live Demo ↗
-                        </motion.a>
-                      )}
-                      {client.githubUrl && client.githubUrl !== "#" && (
-                        <motion.a
-                          whileHover={{ x: 5 }}
-                          href={client.githubUrl}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="links"
-                        >
-                          GitHub Repository ↗
-                        </motion.a>
+                    <span className="links" style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
+                      {client.links ? (
+                        client.links.map((link, lIdx) => (
+                          <motion.a
+                            key={lIdx}
+                            whileHover={{ x: 3 }}
+                            href={link.url}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="links"
+                            style={{ marginRight: "0.5rem" }}
+                          >
+                            {link.text} ↗
+                          </motion.a>
+                        ))
+                      ) : (
+                        <>
+                          {client.hostedUrl && client.hostedUrl !== "#" && (
+                            <motion.a
+                              whileHover={{ x: 5 }}
+                              href={client.hostedUrl}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="links"
+                            >
+                              Live Demo ↗
+                            </motion.a>
+                          )}
+                          {client.githubUrl && client.githubUrl !== "#" && (
+                            <motion.a
+                              whileHover={{ x: 5 }}
+                              href={client.githubUrl}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="links"
+                            >
+                              GitHub Repository ↗
+                            </motion.a>
+                          )}
+                        </>
                       )}
                     </span>
                   </div>

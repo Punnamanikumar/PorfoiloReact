@@ -32,6 +32,7 @@ const workExperience = [
           "Architected a reusable security engine (LDAP, Azure AD, OAuth2, OpenID Connect) that cut integration effort by 80% across 3 distinct enterprise applications",
           "Built fine-grained access systems using Credential-Based (CBAC) and Role-Based (RBAC) controls to protect sensitive client-facing APIs",
           "Designed JWT-based authentication mechanisms that reduced token validation latency and tightened api endpoints",
+          "Created client-side cryptographic utilities (AES-256-CBC, RSA Hybrid AES-GCM) to prevent testing teams from leaking keys and sensitive payloads to insecure public online tools",
         ],
       },
       {
