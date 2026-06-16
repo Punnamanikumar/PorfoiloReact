@@ -117,6 +117,16 @@ const Contact = () => {
         <div className="awesome">
           <span style={{ color: darkMode ? "white" : "" }}>Get in Touch</span>
           <span>Contact me</span>
+          <p style={{ 
+            color: darkMode ? "#bbb" : "var(--gray)", 
+            fontSize: "0.95rem", 
+            lineHeight: "1.5rem", 
+            marginTop: "1rem", 
+            marginBottom: "1.5rem",
+            maxWidth: "400px" 
+          }}>
+            Actively looking for Node.js backend roles where the systems are complex, performance actually matters, and AI belongs in the architecture — not just the pitch deck.
+          </p>
 
           <div className="contact-info">
             <motion.div className="contact-item" whileHover={{ x: 5 }}>

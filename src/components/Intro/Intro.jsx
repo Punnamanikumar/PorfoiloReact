@@ -10,7 +10,6 @@ import crown from "../../img/crown.png";
 import FloatinDiv from "../FloatingDiv/FloatingDiv";
 import Github from "../../img/github.png";
 import LinkedIn from "../../img/linkedin.png";
-import Instagram from "../../img/instagram.png";
 import { themeContext } from "../../Context";
 import { motion } from "framer-motion";
 import { heroStagger, heroItem } from "../../animations/variants";
@@ -18,10 +17,10 @@ import useMouseParallax from "../../hooks/useMouseParallax";
 import MagneticElement from "../MagneticElement/MagneticElement";
 
 const roles = [
-  "MERN Stack Developer",
-  "Backend Specialist",
-  "Cloud & AI Enthusiast",
+  "Backend Engineer",
+  "Node.js Developer",
   "Auth Systems Architect",
+  "AI Systems Builder",
 ];
 
 const Intro = () => {
@@ -102,9 +101,6 @@ const Intro = () => {
           <a href="https://linkedin.com/in/punnamanikumar" target="_blank" rel="noreferrer">
             <img src={LinkedIn} alt="LinkedIn" />
           </a>
-          <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">
-            <img src={Instagram} alt="Instagram" />
-          </a>
         </motion.div>
       </motion.div>
 
@@ -149,7 +145,7 @@ const Intro = () => {
           transition={{ duration: 0.8, delay: 1.1, ease: [0.25, 0.1, 0.25, 1] }}
           className="floating-div float-2"
         >
-          <FloatinDiv img={thumbup} text1="3.8+ Years" text2="Experience" />
+          <FloatinDiv img={thumbup} text1="4+ Years" text2="Experience" />
         </motion.div>
 
         <div className="blur" style={{ background: "rgb(238 210 255)" }}></div>

@@ -1,7 +1,6 @@
 import React from "react";
 import "./Footer.css";
 import Wave from "../../img/wave.png";
-import Insta from "@iconscout/react-unicons/icons/uil-instagram";
 import Gitub from "@iconscout/react-unicons/icons/uil-github";
 import LinkedIn from "@iconscout/react-unicons/icons/uil-linkedin";
 import AnimatedSection from "../AnimatedSection/AnimatedSection";
@@ -15,14 +14,14 @@ const Footer = () => {
       <div className="f-content">
         <span>punnamanikumar@gmail.com</span>
         <AnimatedSection direction="none" className="f-icons-wrapper">
-          <motion.div 
+          <motion.div
             className="f-icons"
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
           >
-            <motion.a 
+            <motion.a
               variants={fadeUp}
               whileHover={{ scale: 1.2, y: -4 }}
               transition={{ type: "spring", stiffness: 300, damping: 15 }}
@@ -30,21 +29,13 @@ const Footer = () => {
             >
               <Gitub color="white" size={"3rem"} />
             </motion.a>
-            <motion.a 
+            <motion.a
               variants={fadeUp}
               whileHover={{ scale: 1.2, y: -4 }}
               transition={{ type: "spring", stiffness: 300, damping: 15 }}
               href="https://linkedin.com/in/punnamanikumar" target="_blank" rel="noreferrer"
             >
               <LinkedIn color="white" size={"3rem"} />
-            </motion.a>
-            <motion.a 
-              variants={fadeUp}
-              whileHover={{ scale: 1.2, y: -4 }}
-              transition={{ type: "spring", stiffness: 300, damping: 15 }}
-              href="https://www.instagram.com/" target="_blank" rel="noreferrer"
-            >
-              <Insta color="white" size={"3rem"} />
             </motion.a>
           </motion.div>
         </AnimatedSection>

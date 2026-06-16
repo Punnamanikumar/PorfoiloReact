@@ -24,18 +24,25 @@ const education = [
 
 const certifications = [
   {
-    title: "Salesforce Developer Training",
-    issuer: "ICT Academy",
-    detail: "Earned 5 Super Badges and 59 Developer Module Badges",
-    link: "https://trailblazer.me/",
-    icon: "☁️",
+    title: "AI Engineer Core Track",
+    issuer: "LLM Engineering, RAG, Agents",
+    detail: "Deep dive into LangChain, LangGraph, agentic workflows, and semantic search architectures.",
+    link: "#",
+    icon: "🤖",
   },
   {
-    title: "Python Programming & AWS Courses",
-    issuer: "Completed during lockdown to upskill",
-    detail: "Python fundamentals, AWS cloud essentials",
+    title: "AI Engineer Agentic Track",
+    issuer: "Complete Agent & MCP Course",
+    detail: "Focused on Model Context Protocol (MCP), multi-agent systems, and tool integration.",
     link: "#",
-    icon: "📜",
+    icon: "🔌",
+  },
+  {
+    title: "AWS Fundamentals",
+    issuer: "AWS Fundamentals Course",
+    detail: "Core AWS components (Lambda, SQS, SNS, EventBridge, IAM).",
+    link: "#",
+    icon: "☁️",
   },
 ];
 

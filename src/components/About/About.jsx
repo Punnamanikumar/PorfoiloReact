@@ -9,7 +9,7 @@ const skillCategories = [
   {
     title: "Backend Technologies",
     icon: "⚙️",
-    skills: ["Node.js", "Express.js", "Nest.js", "TypeScript", "REST APIs", "Mongoose"],
+    skills: ["Node.js", "Express.js", "NestJS", "TypeScript", "REST APIs", "Microservices", "Distributed Systems", "Kafka"],
   },
   {
     title: "Frontend",
@@ -19,27 +19,32 @@ const skillCategories = [
   {
     title: "Auth & Security",
     icon: "🔐",
-    skills: ["LDAP", "Azure AD SSO", "OAuth2", "OpenID Connect", "JWT", "RBAC", "CBAC"],
+    skills: ["IAM", "SSO", "Azure AD SSO", "OAuth2", "OpenID Connect", "JWT", "RBAC", "CBAC", "API Security"],
   },
   {
     title: "Databases & Caching",
     icon: "🗄️",
-    skills: ["MongoDB", "MySQL", "Oracle", "Redis"],
+    skills: ["MongoDB", "MySQL", "Redis", "Vector Databases"],
   },
   {
     title: "Cloud & DevOps",
     icon: "☁️",
-    skills: ["AWS Lambda", "AWS SNS", "AWS SQS", "EventBridge", "S3", "AWS CDK", "Docker", "Git"],
+    skills: ["AWS Lambda", "AWS SQS", "AWS SNS", "EventBridge", "S3", "AWS CDK", "Serverless Architecture", "Docker", "Git"],
   },
   {
     title: "AI & LLM",
     icon: "🤖",
-    skills: ["RAG", "Prompt Engineering", "CrewAI", "MCP", "Agentic AI", "LangChain", "LangSmith", "Vector DBs"],
+    skills: ["LangChain", "LangGraph", "CrewAI", "MCP", "RAG Pipelines", "OpenAI API", "Claude API", "Prompt Engineering"],
   },
   {
-    title: "Monitoring & Quality",
+    title: "AI Tools",
+    icon: "🛠️",
+    skills: ["GitHub Copilot (GHCP)", "LangSmith", "Agentic Workflows"],
+  },
+  {
+    title: "Monitoring & Dev Tools",
     icon: "📊",
-    skills: ["Grafana", "Dynatrace", "SonarQube", "Checkmarx", "Jest"],
+    skills: ["Postman", "Jira", "Jest", "SonarQube", "Grafana", "Dynatrace", "GitHub Actions"],
   },
 ];
 
@@ -61,7 +66,7 @@ const About = () => {
           <p className="about-extra" style={{ color: darkMode ? "#aaa" : "" }}>
             I enjoy architecting solutions that balance security, performance, and developer experience.
             When I'm not building backend systems, you'll find me exploring new AI frameworks,
-            contributing to open-source, or mentoring fellow developers.
+            building side projects, or solving problems on LeetCode.
           </p>
         </AnimatedSection>
 
@@ -85,7 +90,7 @@ const About = () => {
                   </span>
                 </div>
                 {/* Internal stagger for skill tags */}
-                <motion.div 
+                <motion.div
                   className="skill-tags"
                   variants={staggerFast}
                   initial="hidden"

@@ -18,40 +18,47 @@ const workExperience = [
     type: "full-time",
     categories: [
       {
+        title: "Production Admin Portal — React.js",
+        icon: "💻",
+        highlights: [
+          "Built an enterprise administration portal using React.js to streamline user onboarding, role configurations, and operational reporting",
+          "Designed reusable component libraries with role-aware UI logic, aligning the frontend interface directly with backend RBAC security policies",
+        ],
+      },
+      {
         title: "Authentication & Security",
         icon: "🔐",
         highlights: [
-          "Architected centralized auth platform with LDAP, JWT SSO, RBAC/CBAC, and Redis sessions — reducing integration time by 80%",
-          "Implemented Azure AD SSO using OAuth2 & OpenID Connect for multi-tenant enterprise login",
-          "Designed encrypted JWT-based auth mechanisms, improving API security & reducing token validation latency",
-          "Developed Credential-Based Access Control (CBAC) for fine-grained endpoint-level authorization",
+          "Architected a reusable security engine (LDAP, Azure AD, OAuth2, OpenID Connect) that cut integration effort by 80% across 3 distinct enterprise applications",
+          "Built fine-grained access systems using Credential-Based (CBAC) and Role-Based (RBAC) controls to protect sensitive client-facing APIs",
+          "Designed JWT-based authentication mechanisms that reduced token validation latency and tightened api endpoints",
         ],
       },
       {
         title: "Performance & Optimization",
         icon: "⚡",
         highlights: [
-          "Migrated session management to Redis caching — reduced DB load by 60%, improved API response time by 40%",
-          "Resolved 100+ SonarQube issues, significantly improving code quality metrics",
-          "Enforced client version compatibility via User-Agent validation, minimizing production issues",
+          "Boosted API speeds by 30–40% and cut database load in half by migrating session management to high-throughput Redis caching",
+          "Cleared 100+ code quality and security alerts in SonarQube, improving code health and maintainability metrics",
+          "Enforced client version verification via customized User-Agent validation rules, drastically reducing runtime production errors",
         ],
       },
       {
         title: "Cloud & Microservices",
         icon: "☁️",
         highlights: [
-          "Built AWS Lambda functions (VPC-integrated) with Secrets Manager for secure DB automation",
-          "Developed push notification microservice using AWS SNS and Redis caching",
-          "Designed event-driven serverless workflows using AWS SQS and EventBridge",
+          "Designed event-driven serverless architectures using AWS SQS, EventBridge, and Kafka streams for processing async messages",
+          "Built secure AWS Lambda functions integrated with VPC networking and AWS Secrets Manager for automated database jobs",
+          "Created a high-throughput push notifications service optimized with Redis caching for instant delivery",
         ],
       },
       {
         title: "AI & Intelligent Systems",
         icon: "🤖",
         highlights: [
-          "Designed RAG pipelines integrating vector search and LLMs for contextual document validation",
-          "Built Agentic AI workflows using CrewAI and MCP architecture for automated compliance reasoning",
-          "Applied advanced prompt engineering and LangChain orchestration to reduce hallucinations",
+          "Created intelligent document validators using semantic vector search, custom RAG pipelines, and LLM reasoning",
+          "Built autonomous agentic compliance workflows utilizing multi-agent frameworks like CrewAI and the Model Context Protocol (MCP)",
+          "Leveraged GitHub Copilot and advanced prompting techniques to accelerate backend prototyping and reduce boilerplate code",
         ],
       },
     ],
@@ -59,7 +66,7 @@ const workExperience = [
   {
     company: "PrepBytes",
     location: "Remote",
-    role: "Training & Intern",
+    role: "MERN Stack Intern",
     period: "Sep 2021 – June 2022",
     type: "intern",
     categories: [
@@ -67,9 +74,9 @@ const workExperience = [
         title: "Full Stack Development",
         icon: "💻",
         highlights: [
-          "Completed structured MERN training and built full-stack applications using Agile methodology",
-          "Developed React Blog App with dynamic routing, secure APIs, and MongoDB storage",
-          "Built responsive portfolio website deployed on Netlify and Render",
+          "Mastered full-stack development patterns (MERN stack) while building web applications in fast-paced Agile sprints",
+          "Created clean web products from scratch, covering frontend routing, RESTful APIs, and MongoDB schema designs",
+          "Deployed responsive client-server web apps to cloud environments like Netlify and Render",
         ],
       },
     ],
@@ -80,11 +87,11 @@ const Experience = () => {
   const theme = useContext(themeContext);
   const darkMode = theme.state.darkMode;
   const statsRef = useRef(null);
-  
+
   // GSAP Counter Animation
   useEffect(() => {
     const stats = statsRef.current.querySelectorAll('.counter-val');
-    
+
     // Only animate if element is found
     if (stats.length === 0) return;
 
@@ -92,7 +99,7 @@ const Experience = () => {
       stats.forEach((stat) => {
         const targetValue = parseFloat(stat.getAttribute('data-target'));
         const isFloat = targetValue % 1 !== 0; // Check if it's a decimal like 3.8
-        
+
         ScrollTrigger.create({
           trigger: statsRef.current,
           start: "top 80%",
@@ -103,7 +110,7 @@ const Experience = () => {
               duration: 2,
               ease: "power2.out",
               snap: { innerHTML: isFloat ? 0.1 : 1 },
-              onUpdate: function() {
+              onUpdate: function () {
                 // Ensure float values display with 1 decimal place
                 if (isFloat) {
                   stat.innerHTML = parseFloat(this.targets()[0].innerHTML).toFixed(1);
@@ -145,8 +152,8 @@ const Experience = () => {
           <div className="circle" style={{ color: darkMode ? "var(--orange)" : "" }}>
             <span className="counter-val" data-target={process.env.REACT_APP_COMPANIES_WORKED || "2"}>0</span>
           </div>
-          <span style={{ color: darkMode ? "white" : "" }}>companies </span>
-          <span>Work</span>
+          <span style={{ color: darkMode ? "white" : "" }}></span>
+          <span>Companies</span>
         </div>
       </div>
 

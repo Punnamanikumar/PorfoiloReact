@@ -10,21 +10,21 @@ const awards = [
     icon: "🏆",
     title: "Annual Achiever Award",
     org: "Datamatics",
-    description: "Recognized for exceptional contributions and consistent high-quality delivery across multiple production applications.",
+    description: "Recognized for architecting the centralized authentication platform and Redis migration that improved API performance by 40% — delivered across multiple production applications at Datamatics.",
     color: "#FFD700",
   },
   {
     icon: "⭐",
     title: "Spot Award",
     org: "Datamatics",
-    description: "Awarded for outstanding performance and going above and beyond in critical project deliverables.",
+    description: "Awarded for exceptional performance in delivering the AI compliance validation system and resolving 100+ SonarQube security vulnerabilities under tight timelines.",
     color: "#FCA61F",
   },
   {
     icon: "🥉",
     title: "3rd Prize — J-HUB Hackathon League",
     org: "JNTUH",
-    description: "Secured 3rd place at the J-HUB (JNTUH) Hackathon League with the project 'Portal for Farmers'.",
+    description: "Secured 3rd place at J-HUB (JNTUH) Hackathon League, among 50+ competing teams. Built 'Portal for Farmers' — a marketplace connecting farmers directly to buyers, cutting out middlemen and improving pricing transparency for agricultural produce.",
     color: "#CD7F32",
   },
 ];
@@ -41,7 +41,7 @@ const Awards = () => {
       </AnimatedSection>
 
       <AnimatedSection direction="none" delay={0.2} as="div" className="awards-grid-wrapper">
-        <motion.div 
+        <motion.div
           className="awards-grid"
           variants={staggerContainer}
           initial="hidden"
@@ -53,10 +53,10 @@ const Awards = () => {
               className="award-card"
               key={index}
               variants={scaleIn}
-              whileHover={{ 
-                y: -8, 
+              whileHover={{
+                y: -8,
                 boxShadow: `0 20px 40px ${award.color}20`,
-                borderColor: `${award.color}50` 
+                borderColor: `${award.color}50`
               }}
               style={{
                 background: darkMode ? "#16161d" : "",

@@ -12,6 +12,9 @@ import Klently from "../../img/TechStacks/klenty.jpg";
 import Myntra from "../../img/TechStacks/myntra.jpg";
 import AI_Compliance_Validator from "../../img/TechStacks/AI_Compliance_Validator.jpg"
 import AI_JobAnalyser from "../../img/TechStacks/ai_job_analyser.jpeg"
+import AttendanceImg from "../../img/TechStacks/attendance.png";
+import JobPulseImg from "../../img/TechStacks/jobpulse.png";
+import PortfolioImg from "../../img/TechStacks/portfolio_mock.png";
 import AnimatedSection from "../AnimatedSection/AnimatedSection";
 import { motion } from "framer-motion";
 
@@ -19,76 +22,94 @@ const Projects = () => {
   const swiperRef = useRef(null);
   const clients = [
     {
+      img: JobPulseImg,
+      title: "JobPulse AI — Agentic Job Match Tracker",
+      technology: "Python · Gemini AI · LangGraph · Apify · Gmail API · Google Drive API · GitHub Actions",
+      description:
+        "An automated job search agent built with Gemini and LangGraph that scrapes listings, scores your resume's compatibility, and auto-generates custom resumes. Integrates with Gmail and Google Drive to email ranked daily reports.",
+      hostedUrl: "#",
+      githubUrl: "https://github.com/Punnamanikumar/JobPulse-AI",
+    },
+    {
+      img: PortfolioImg,
+      title: "Portfolio Website",
+      technology: "React.js · Node.js · Netlify · Render",
+      description:
+        "A personal developer website featuring a custom AI chatbot assistant ('Ask Mani') that queries a Node.js API to chat about my experience, skills, and background in real time. Integrates clean animations, dark mode, and email APIs.",
+      hostedUrl: "https://manikumarportfolio.netlify.app",
+      githubUrl: "https://github.com/Punnamanikumar/PorfoiloReact",
+    },
+    {
       img: AI_Compliance_Validator,
       title: "Compliance Validator Agent",
-      technology: "Node.js, LangChain, CrewAI, RAG, Vector DB",
+      technology: "Node.js · LangChain · CrewAI · RAG · FAISS · OpenAI API · Vector DB",
       description:
-        "AI-powered compliance validation system using LangChain and RAG architecture. Features document ingestion, semantic search, and LLM-based reasoning for automated policy validation with Agentic AI workflows.",
+        "An AI-driven compliance checker powered by LangChain and CrewAI. Features a full ingestion pipeline (FAISS embeddings, semantic chunking) to validate documents against policies with 85%+ accuracy, saving 60% of manual auditing time.",
       hostedUrl: "#",
       githubUrl: "https://github.com/Punnamanikumar/Compliance-Validator-Agent-Challenge",
     },
     {
       img: AI_JobAnalyser,
       title: "Job Analyser - AI Resume Matcher",
-      technology: "Chrome Extension, Node.js, AI/LLM, Express.js",
+      technology: "Chrome Extension API · Node.js · Express.js · OpenAI API · LLM · REST API",
       description:
-        "AI-powered Chrome extension that analyzes resumes against job postings in real-time on LinkedIn and Naukri. Features intelligent skill matching, gap analysis, experience alignment, and personalized AI recommendations for job seekers.",
+        "A real-time Chrome extension that compares your resume against live job listings on LinkedIn and Naukri. Uses LLMs to highlight skill gaps and offer instant application improvements in under 10 seconds.",
       hostedUrl: "#",
       githubUrl: "https://github.com/Punnamanikumar/job-analyser",
     },
     {
       img: ReactBlog,
       title: "React Blog Application",
-      technology: "React.js, Node.js, Express.js, MongoDB",
+      technology: "React.js · Node.js · Express.js · MongoDB · JWT · REST API · Render",
       description:
-        "Full-stack blog application with dynamic routing, secure REST APIs, user authentication, and MongoDB storage. Supports category-based browsing and responsive design across devices.",
+        "A modern blogging platform built with React, Node.js, and MongoDB. Includes secure JWT session management, roles for admins and authors, dynamic client-side routes, and performance-optimized database indexes.",
       hostedUrl: "https://manikumar-react-blog-complete.netlify.app/",
       githubUrl: "https://github.com/Punnamanikumar/React-Blog-Complete",
     },
     {
       img: Jozbiz,
       title: "Jozbiz Website",
-      technology: "React.js",
+      technology: "React.js · CSS3 · Responsive Design · Netlify",
       description:
-        "Modern business website showcasing the Jozbiz official page with visually appealing design, smooth animations, and responsive layout for seamless navigation.",
+        "A fast, fully responsive business landing page featuring clean React component layouts, custom CSS transitions, and a mobile-first responsive grid structure.",
       hostedUrl: "https://manikumar-jozbiz.netlify.app/",
       githubUrl: "https://github.com/Punnamanikumar/Jozbiz",
     },
     {
       img: OroPocket,
       title: "Oro Pocket Website",
-      technology: "React.js",
+      technology: "React.js · CSS3 · Flexbox · Grid · Responsive UI",
       description:
-        "Landing page clone for OroPocket with modern UI design, responsive layout, and interactive elements for a fintech product showcase.",
+        "A pixel-perfect landing page clone for a fintech product, displaying layout techniques with CSS Flexbox/Grid, smooth scroll behaviors, and responsive layouts.",
       hostedUrl: "https://manikumar-oropocket.netlify.app/",
       githubUrl: "https://github.com/Punnamanikumar/OroPocket",
     },
     {
       img: Klently,
       title: "Klently Website",
-      technology: "React.js",
+      technology: "React.js · CSS Animations · Scroll Effects · Netlify",
       description:
-        "SaaS product landing page built with React featuring clean design, smooth scrolling, and interactive components for product feature showcase.",
+        "A SaaS marketing website built with React.js that focuses on interactive UI cards, scroll-triggered animations, and a sleek user interface.",
       hostedUrl: "https://manikumar-klenty.netlify.app/",
       githubUrl: "https://github.com/Punnamanikumar/Klenty-Assignment",
     },
     {
       img: Myntra,
       title: "Myntra Application",
-      technology: "React.js, Redux",
+      technology: "React.js · Redux · Redux Toolkit · CSS3 · REST API",
       description:
-        "E-commerce platform clone with product categories (Men, Women, Kids), cart management with Redux, and user-friendly interface for a seamless shopping experience.",
+        "An e-commerce storefront replica showing large-scale React architecture. Implements global state management via Redux Toolkit for cart interactions, product listings, and order tracking.",
       hostedUrl: "https://manikumar-myntra-clone.netlify.app/",
       githubUrl: "https://github.com/Punnamanikumar/Myntra-Clone",
     },
     {
-      img: ReactBlog,
+      img: AttendanceImg,
       title: "Online Attendance Management System",
-      technology: "PHP, MySQL, HTML, CSS",
+      technology: "PHP · MySQL · HTML · CSS · Session Auth · Role-Based Access Control",
       description:
-        "Academic web application with role-based login (Admin/Faculty/Student), attendance tracking, report generation, and secured access control for educational institutions.",
+        "A multi-role academic tool (Admin, Faculty, and Students) built with PHP and MySQL. Handles classroom database queries, session authentication, and automated attendance reports.",
       hostedUrl: "#",
-      githubUrl: "https://github.com/Punnamanikumar",
+      githubUrl: "#",
     },
   ];
 
@@ -98,7 +119,7 @@ const Projects = () => {
         <span>My Notable </span>
         <span>Projects </span>
         <span style={{ fontSize: "1rem", color: "var(--gray)", fontWeight: 400, display: "block", marginTop: "0.5rem" }}>
-          Showcasing full-stack and AI-powered applications
+          Backend systems, AI pipelines, and full-stack applications built with Node.js, React, and AWS
         </span>
         <div className="blur t-blur1" style={{ background: "var(--purple)" }}></div>
         <div className="blur t-blur2" style={{ background: "skyblue" }}></div>
@@ -152,15 +173,17 @@ const Projects = () => {
                           Live Demo ↗
                         </motion.a>
                       )}
-                      <motion.a
-                        whileHover={{ x: 5 }}
-                        href={client.githubUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="links"
-                      >
-                        GitHub Repository ↗
-                      </motion.a>
+                      {client.githubUrl && client.githubUrl !== "#" && (
+                        <motion.a
+                          whileHover={{ x: 5 }}
+                          href={client.githubUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="links"
+                        >
+                          GitHub Repository ↗
+                        </motion.a>
+                      )}
                     </span>
                   </div>
                 </motion.div>
