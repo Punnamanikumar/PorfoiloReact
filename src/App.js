@@ -25,7 +25,7 @@ function App() {
 
   return (
     <div
-      className="App"
+      className={`App ${darkMode ? "dark-mode" : ""}`}
       style={{
         background: darkMode ? "#0a0a0f" : "",
         color: darkMode ? "white" : "",

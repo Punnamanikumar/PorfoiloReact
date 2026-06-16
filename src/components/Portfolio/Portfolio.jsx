@@ -17,12 +17,39 @@ const Portfolio = () => {
   const darkMode = theme.state.darkMode;
   const swiperRef = useRef(null);
 
+  const miniProjects = [
+    {
+      title: "Registration Form & Tables",
+      img: Form,
+      github: "https://github.com/Punnamanikumar/HTML-Form-and-Tables-A-2",
+      live: "https://punnamanikumar.github.io/HTML-Form-and-Tables-A-2/"
+    },
+    {
+      title: "React CRUD Application",
+      img: ReactCrud,
+      github: "https://github.com/Punnamanikumar/REACT-Assignment-5",
+      live: "#"
+    },
+    {
+      title: "JavaScript Todo List",
+      img: Todojs,
+      github: "https://github.com/Punnamanikumar/TodoList-JS",
+      live: "https://punnamanikumar.github.io/TodoList-JS/"
+    },
+    {
+      title: "Digital Clock UI",
+      img: Clock,
+      github: "https://github.com/Punnamanikumar/DigitalClock-UI",
+      live: "https://punnamanikumar.github.io/DigitalClock-UI/"
+    }
+  ];
+
   return (
     <div className="portfolio" id="portfolio">
       {/* heading */}
       <AnimatedSection direction="up" className="portfolio-heading">
         <span style={{ color: darkMode ? "white" : "" }}>Mini Projects</span>
-        <span>Portfolio</span>
+        <span> Portfolio</span>
       </AnimatedSection>
 
       {/* slider with custom nav buttons outside */}
@@ -48,14 +75,38 @@ const Portfolio = () => {
             },
           }}
         >
-          {[Form, ReactCrud, Todojs, Clock].map((imgSrc, index) => (
+          {miniProjects.map((project, index) => (
             <SwiperSlide key={index}>
               <motion.div
-                whileHover={{ scale: 1.05, y: -10, rotate: 2 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                style={{ width: "100%", height: "100%", borderRadius: "19px", overflow: "hidden" }}
+                className="portfolio-card"
+                whileHover="hover"
+                initial="initial"
+                variants={{
+                  initial: { scale: 1, y: 0, rotate: 0 },
+                  hover: { scale: 1.05, y: -8, rotate: 1, transition: { type: "spring", stiffness: 300, damping: 20 } }
+                }}
               >
-                <img src={imgSrc} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                <img src={project.img} alt={project.title} />
+                <motion.div
+                  className="portfolio-overlay"
+                  variants={{
+                    initial: { opacity: 0, backdropFilter: "blur(0px)", backgroundColor: "rgba(10, 10, 15, 0)" },
+                    hover: { opacity: 1, backdropFilter: "blur(12px)", backgroundColor: "rgba(10, 10, 15, 0.75)" }
+                  }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <h3 className="portfolio-title">{project.title}</h3>
+                  <div className="portfolio-links">
+                    {project.live && project.live !== "#" && (
+                      <a href={project.live} target="_blank" rel="noreferrer" className="portfolio-btn">
+                        Demo ↗
+                      </a>
+                    )}
+                    <a href={project.github} target="_blank" rel="noreferrer" className="portfolio-btn github-btn">
+                      Repo ↗
+                    </a>
+                  </div>
+                </motion.div>
               </motion.div>
             </SwiperSlide>
           ))}

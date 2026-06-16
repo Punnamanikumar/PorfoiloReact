@@ -156,9 +156,6 @@ const Navbar = () => {
                       <span
                         className={activeSection === s.id ? "n-active" : ""}
                         onClick={() => handleNavClick(s.id)}
-                        style={{
-                          color: activeSection !== s.id && darkMode ? "#888" : "",
-                        }}
                       >
                         {s.label}
                         {/* Apple-style animated underline */}

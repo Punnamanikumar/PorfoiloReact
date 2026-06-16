@@ -94,6 +94,12 @@
   background: #f7f7fb;
   padding: 0.2rem 0.6rem;
   border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.dark-mode .edu-period {
+  background: #242d49;
+  color: #a0aec0;
 }
 
 .edu-grade {
@@ -103,6 +109,12 @@
   background: #fff8ee;
   padding: 0.2rem 0.6rem;
   border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.dark-mode .edu-grade {
+  background: rgba(252, 166, 31, 0.1);
+  color: var(--orange);
 }
 
 .cert-detail {

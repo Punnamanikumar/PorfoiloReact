@@ -67,22 +67,30 @@
   margin-right: 4rem;
 }
 
-.n-list > ul :hover {
-  color: var(--orange);
-  cursor: pointer;
-}
-
 .n-list > ul span {
   cursor: pointer;
   transition: color 0.2s ease;
   position: relative;
   padding-bottom: 4px;
+  color: var(--black);
+}
+
+.dark-mode .n-list > ul span {
+  color: #888;
+}
+
+.n-list > ul span:hover {
+  color: var(--orange) !important;
 }
 
 /* Active section indicator */
 .n-active {
   color: var(--black) !important;
   font-weight: 600;
+}
+
+.dark-mode .n-active {
+  color: white !important;
 }
 
 /* Framer Motion animated underline */
